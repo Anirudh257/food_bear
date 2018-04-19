@@ -1,0 +1,14 @@
+{% extends 'basepage.html' %}
+<!-- <h1>Home Page, ain't fancy yet!</h1> -->
+
+{% load staticfiles %}
+
+{% block content %}
+<p>
+	<img src="{% static 'food-easy.png' %}" alt="foody-logo" class="foody-logo">
+</p>
+{% endblock %}
+
+{% block login %}
+<li class="navig-item"><a href="/login">Login</a></li>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FB HomePage</title>
+        <link rel="stylesheet" href="{% static 'css/navig.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/sldng-dgnl.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+
+        <header id="navig" class="navig-fixed sticky-top">
+            <input type="checkbox" class="navig-checkbox" id="navig-checkbox"/>
+            <div class="navig-menu navig-menu-right navig-menu-dark">
+                <ul class="navig-navigation">
+                    <li class="navig-header">
+                        <a href="/" class="navig-brand">Foody</a>
+                        <label class="navig-hamburger navig-hamburger-doublespin" 
+                        id="navig-hamburger" for="navig-checkbox"> <span></span> </label>
+                    </li>
+                    {% block login %}
+<!-- 
+                    <li class="navig-item"><a href="127">Login</a></li> -->    
+
+                    {% endblock %}
+                    <li class="navig-item"><a href="#">Search By Vendor</a></li>
+                    <!-- <li class="navig-item"><a href="#">Item 3</a></li> -->
+                </ul>
+            </div>
+        </header>
+    </head>
+    <body>
+        <!-- Animated Background -->           
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+   
+        <!-- On-screen elements -->
+        <div class="container">
+            <!-- <p>
+                <img src="{% static 'food-easy.png' %}" alt="foody-logo" class="foody-logo">
+            </p> -->
+
+            {% block content %}
+            {% endblock %}
+
+
+
+            <div class="row"> <br><br><br><br> <br><br><br><br>
+                <p class="text-center ml-2">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <div class="btns row">
+                <div class="col-6"> <a href="#" class="btn btn-sm animated-button thar-one">Food Items</a> </div>
+                <div class="col-6"> <a href="#" class="btn btn-sm animated-button thar-two">Vendors</a> </div>
+            </div>
+        </div>
+    </body>
+</html>

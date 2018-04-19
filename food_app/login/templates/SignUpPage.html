@@ -1,0 +1,28 @@
+<!-- <form method = 'POST' class="register-form"> {% csrf_token %}
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form> -->
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="{% static 'css/css-loginpage.css' %}" rel="stylesheet" type="text/css">
+  <title></title>
+</head>
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form method = 'POST' class="login-form"> {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">create</button>
+        <p class="message">Already registered? <a href="/login">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
