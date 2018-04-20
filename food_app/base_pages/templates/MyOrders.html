@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href = "../css/dropdownbtn.css" rel = "stylesheet">
+    <title>My Orders</title>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/MyOrders.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/sldng-dgnl.css">
+  </head>
+  <body class="py-5">
+    <!-- Animated Background -->           
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <!-- Animated Background Ends -->
+    <header>
+        <!-- Responsive Navbar -->
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">My Orders</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="fb-homepage.html">
+                  <i class="fa fa-home"></i> Home<span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Dashboard </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">My Orders</a>
+                <a class="dropdown-item" href="#">Passbook</a>
+              </div>
+            </li>
+          </ul>
+        
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 align-right mx-auto" type="submit">Search</button>
+          </form> 
+       
+        </div>
+      </nav> 
+      <!-- end navbar -->
+      </header>
+
+    <main role="main">
+        <div class="page">
+            <p>
+                <div class="dropdown">                
+                    <button  onclick="toggleBtnSort()" class="btn btn-sort" id="btn-sort">Sort
+                        <i class="align-middle" data-feather="chevron-down"></i>
+                    </button>               
+                    <div id="myDropdownBtn" class="dropdown-content">               
+                        <a href="#about">All</a>
+                        <a href="#base">Confirmed</a>
+                        <a href="#about">Delivered</a>
+                        <a href="#base">Pending</a>
+                    </div>
+              </div>
+            </p>
+            <table class="layout display responsive-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date/Time</th>
+                        <th colspan="2">Name/Quantity</th>
+                        <th>Vendor</th>
+                        <th>Status</th>
+                        <th>Time Remaining</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="organisationnumber">140406</td>
+                        <td class="organisationname">14/5/18 3:55PM</td>
+                        <td class="organisationname">Burger</td>
+                        <td class="actions"> <a href="?" class="remove-item" title="Remove">Cancel</a></td>
+                        <td class="organisationname">Georgia</td>
+                        <td class="organisationname">Confirmed</td>
+                        <td class="organisationname">15 mins</td>
+                    </tr>       
+                    <tr>
+                        <td class="organisationnumber">140412</td>
+                        <td class="organisationname">17/5/18 9:34PM</td>
+                        <td class="organisationname">Paneer Roll/2</td>
+                        <td class="actions"><a href="?" class="remove-item" title="Remove">Cancel</a></td>
+                        <td class="organisationname">Rollwala</td>
+                        <td class="organisationname">Pending</td>
+                        <td class="organisationname">-</td>
+                    </tr>
+                    <tr>
+                        <td class="organisationnumber">140404</td>
+                        <td class="organisationname">20/5/18 11:02AM</td>
+                        <td class="organisationname">Coleselow Sandwich</td>
+                        <td class="actions"><a href="?" class="remove-item" title="Remove">Cancel</a></td>
+                        <td class="organisationname">Rama Enterprise</td>
+                        <td class="organisationname">Delivered</td>
+                        <td class="organisationname">-</td>
+                    </tr>
+                    <tr>
+                        <td class="organisationnumber">140408</td>
+                        <td class="organisationname">23/5/18 6:23PM</td>
+                        <td class="organisationname">Baked Nachos</td>
+                        <td class="actions"><a href="?" class="remove-item" title="Remove">Cancel</a></td>
+                        <td class="organisationname">Georgia</td>
+                        <td class="organisationname">Confirmed</td>
+                        <td class="organisationname">20 mins</td>
+                    </tr>     
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+        </footer>
+    </main>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../js/vendor/popper.min.js"></script>
+<script src="../js/dropdownbtn.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="../js/vendor/holder.min.js"></script>
+<script>
+    feather.replace()
+</script>
+
+  </body>
+</html>
+
