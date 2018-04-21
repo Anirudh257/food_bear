@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
-
+/* 
 .navig-default {
   width: 100%;
   position: relative;
@@ -188,7 +188,7 @@
   transform: rotate(-45deg); }
 
 /******* color variables *******/
-/******* default dark *******/
+/******* default dark *******//*
 .navig-menu-dark,
 .navig-menu-dark .dropdown ul {
   background-color: #212121;
@@ -202,8 +202,8 @@
 .navig-menu-dark .navig-hamburger span::before,
 .navig-menu-dark .navig-hamburger span::after {
   background-color: #fff; }
-
-/******* default light *******/
+*/
+/******* default light *******//*
 .navig-menu-light,
 .navig-menu-light .dropdown ul {
   background-color: #e0e0e0;
@@ -216,9 +216,9 @@
 .navig-menu-light .navig-hamburger span::before,
 .navig-menu-light .navig-hamburger span::after {
   background-color: #212121; }
-
+*/
 /*# sourceMappingURL=navig.css.map */
-
+/*
 body {
 	font-family: 'Lato', sans-serif;
 	background: #353535;
@@ -243,7 +243,7 @@ h2 {
 }
 .mrng-60-top {
 	margin-top: 60px;
-}
+} */
 /* Global Button Styles */
 a.animated-button:link, a.animated-button:visited {
 	position: relative;
@@ -371,21 +371,25 @@ a.animated-button.thar-two:before {
 }
 
 .foody-logo {
-  display: block;
-  left:50%;
-  margin: 0 auto;
-  max-height: 19rem;
-  max-width: 100%;
-  padding: 0;
-  position:absolute;
-  top:23%;
-  transform:translate(-50%, -50%);
+  max-height: 10.6rem;
 }
 
 .btns { 
-  height: auto; 
-  position: absolute; 
-  bottom:0%;
-  width:100%;
-  margin: 5% ;
+  position: relative;
+  top: 50%;
+  transform: translateY(40%);
+  height: 100%;
+  margin: auto ;
+}
+
+body {
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+#choose {
+  font-family: 'AR DARLING', 'AR BONNIE';
 }
