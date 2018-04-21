@@ -30,7 +30,13 @@
   								<img src="{{ v_i }}" class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap" height="300" width="42">
   							</p>
   							<hr>
-  							<div class="row">
+
+                <form method = 'POST'> {% csrf_token %}
+                  {{ form.as_p }}
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Available</button>    
+                </form>
+
+  							<!-- <div class="row">
 
                 {% for i in f_i %}
     								<div class="col-9" align="text-center">
@@ -43,11 +49,11 @@
 
   							</div>  						
   							
-  							 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Available</button>  
-        				</div>
+  							 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Available</button>   -->
         			</div>
-      			</div>
-      		</p>	
+        		</div>
+      		</div>
+      	</p>	
   		</div>	
   	</div>
   
