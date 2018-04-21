@@ -1,0 +1,94 @@
+#side-toggle{
+	left: 0;
+	position: fixed;
+	top: 60px;
+	z-index: 99;
+	text-decoration: none;
+	color: #fff;
+	background: #333;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	width: 40px;
+	text-align: center;
+}
+
+#side-toggle:hover span{
+	left: 100%;
+}
+#side-toggle:hover,
+#side-toggle:hover span { background: #1F1F1F }
+
+#side-toggle span {
+	line-height: 40px;
+	left:-60px;
+	position: absolute;
+	text-align:center;
+	width:60px;
+}
+
+#side-float {
+	left: 0;
+	position: fixed;
+	top: 100px;
+	z-index: 99;
+	margin-left: -40px;
+	transition: all 0.5s ease 0s;
+ }
+
+#side-float.visible{
+	margin-left: 0px;
+	transition: all 0.5s ease 0s;
+}
+
+#side-float a { 
+	text-decoration: none;
+	color: #fff;
+ }
+ 
+#side-float ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#side-float li{
+	background: #333;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+	text-align: center;
+	width: 40px;
+}
+
+
+#side-float li:hover span{
+	left: 100%;
+}
+
+#side-float a span {
+	line-height: 40px;
+	left:-100px;
+	position: absolute;
+	text-align:center;
+	width:100px;
+}
+ 
+#side-float li.facebook:hover,
+#side-float li.facebook span { background: #4060A5; }
+
+#side-float li.twitter:hover,
+#side-float li.twitter span { background: #00aced; }
+
+#side-float li.google-plus:hover,
+#side-float li.google-plus span { background: #e64522; }	
+
+#side-float li.youtube-play:hover,
+#side-float li.youtube-play span { background: #ff0000; }	
+
+#side-float li.twitch:hover,
+#side-float li.twitch span { background: #6441A4; }	
+
+#side-float li.steam:hover,
+#side-float li.steam span { background: #144679 }

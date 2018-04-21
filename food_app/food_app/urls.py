@@ -30,7 +30,6 @@ urlpatterns = [
     re_path(r'^account/(?P<username>[\w.@+-]+)/$', base_views.user_home, name = 'account'),
     path('vendors/', base_views.vendor_list, name = 'vendor_list'),
     re_path(r'^ven/(?P<username>[\w.@+-]+)/$', vendor_views.list_for_vendors, name = 'list_for_vendors'),
-    path('errora/', login_views.access_error, name = 'error_access')    
 ]
 
 if settings.DEBUG:
