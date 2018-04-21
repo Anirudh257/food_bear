@@ -5,11 +5,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from base_pages import templates as home_temp
 from login.models import user_details
-from django.contrib.auth.models import Group
 
 # Create your views here.
 
 def login(request):
+	
 	form = user_login_details(request.POST or None)
 
 	if form.is_valid():
@@ -17,20 +17,15 @@ def login(request):
 		fusername = form.cleaned_data['username'] + '\n'
 		fpassword = form.cleaned_data['password'] + '\n'
 
-		auth_user = authenticate(username = fusername, password = fpassword)
+		request.session['un'] = fusername
+		request.session['pw'] = fpassword
 
-		if auth_user is None:
+		a_user = fusername [:len(fusername) - 1]
 
-			pass
+		if fusername in ['chai' + '\n', 'ge' + '\n', 'surya' + '\n', 'roll' + '\n', 'rama' + '\n']:
+			return redirect("/ven/" + a_user + "/")
 
-		else:
-
-			a_user = fusername [:len(fusername) - 1]
-
-			if fusername in ['chai' + '\n', 'ge' + '\n', 'surya' + '\n', 'roll' + '\n', 'rama' + '\n']:
-				return redirect("/ven/" + a_user + "/")
-
-			return redirect("/account/" + a_user + "/")
+		return redirect("/account/" + a_user + "/")
 
 	context = locals()
 	template = 'LoginPage.html'
@@ -57,3 +52,6 @@ def signup(request):
 	context = locals()
 	template = 'SignUpPage.html'
 	return render(request, template, context)
+
+def access_error(request):
+	return render(request, 'error_access.html', locals())
