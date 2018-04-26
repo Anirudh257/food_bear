@@ -7,7 +7,7 @@ from vendor_pages.models import vendor_info
 
 def home(request):
 	context = locals()
-	template = 'home.html'
+	template = 'nu_home.html'
 	return render(request, template, context)
 
 def user_home(request, username):
@@ -20,10 +20,43 @@ def user_home(request, username):
 	if auth_user is None or user != username + '\n':
 		return redirect('/errora')
 
-	return render(request, 'user_home.html', {'username' : username})
+	return render(request, 'u_home.html', {'username' : username})
 
 def vendor_list(request):
-	return render(request, 'sort-by-vendor.html', locals())
+
+	vendor_data = vendor_info.objects.filter().values_list()
+	render_data = []
+
+	for item in vendor_data:
+		v_id = item[1]
+		v_user = item[2]
+		v_img = item[3]
+		render_data.append((v_id, v_user, v_img))
+
+	return render(request, 'nu_list_of_vendors.html', locals())
+
+def user_vendor_list(request, username):
+
+	user = request.session['un']
+	passw = request.session['pw']
+
+	auth_user = authenticate(username = user, password = passw)
+
+	if auth_user is None or user != username + '\n':
+		return redirect('/errora')
+
+	vendor_data = vendor_info.objects.filter().values_list()
+	render_data = []
+
+	for item in vendor_data:
+		v_id = item[1]
+		v_user = item[2]
+		v_img = item[3]
+		render_data.append((v_id, v_user, v_img))
+
+	print(render_data)
+
+	return render(request, 'u_list_of_vendors.html', {'username' : username, 'render_data' : render_data})
 
 def user_order(request, username):
 
@@ -35,9 +68,26 @@ def user_order(request, username):
 	if auth_user is None or user != username + '\n':
 		return redirect('/errora')
 
-	return render(request, 'MyOrders.html', {'username' : username})
+	return render(request, 'u_MyOrders.html', {'username' : username})
 
-def vendor_dynamic(request, vusername, cusername):
+def vendor_dynamic(request, vusername): #change navbar
+
+	food_list_items = vendor_food_list.objects.filter(vendor_id = vusername).values_list()
+	food_dict = {}
+
+	food_dict['vendor_name'] = vendor_info.objects.get(vendor_id = vusername).vendor_name
+
+	food_det = []
+
+	for item in food_list_items:
+		if item[3] == 1:
+			food_det.append([item[2], item[4]])
+
+	food_dict['food_det'] = food_det
+
+	return render(request, 'nu_dynamic_vendor.html', food_dict)
+
+def user_vendor_dynamic(request, vusername, cusername):
 
 	user = request.session['un']
 	passw = request.session['pw']
@@ -70,14 +120,50 @@ def vendor_dynamic(request, vusername, cusername):
 			
 			quant = request.POST.get(item, None)
 
-			if quant == '':
+			if quant is None or quant == '':
 				continue
 
-			food_ordered.append([item, price, int(quant)])
+			if int(quant) == 0:
+				continue
+
+			food_ordered.append([item, str(price), int(quant)])
 
 		# proceed to checkout now
 
-	return render(request, 'dynamic_vendor.html', food_dict)
+		request.session['order'] = food_ordered
+		return redirect('/checkout/' + cusername)
 
-def item_list(request):
-	return render(request, 'list-item.html', locals())
+	return render(request, 'u_dynamic_vendor.html', food_dict)
+
+def user_profile(request, username):
+
+	user = request.session['un']
+	passw = request.session['pw']
+
+	auth_user = authenticate(username = user, password = passw)
+
+	if auth_user is None or user != cusername + '\n':
+		return redirect('/errora')	
+
+	return render(request, 'u_User-Profile.html', locals())
+
+def user_checkout(request, username):
+
+	user = request.session['un']
+	passw = request.session['pw']
+
+	auth_user = authenticate(username = user, password = passw)
+
+	if auth_user is None or user != username + '\n':
+		return redirect('/errora')
+
+	ordered_food = request.session['order']
+
+	if len(ordered_food) == 0:
+		return render(request, 'u_Checkout_Page.html', { 'ordered_food' : ordered_food, 'error' : 'Not hungry?'})		
+
+	for item in ordered_food:
+		item[1] = float(item[1])
+		item.append(item[1] * item[2])	
+
+	return render(request, 'u_Checkout_Page.html', { 'ordered_food' : ordered_food })

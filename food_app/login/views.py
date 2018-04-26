@@ -10,6 +10,9 @@ from login.models import user_details
 
 def login(request):
 	
+	request.session['un'] = 'sajncjasnckljasnl'
+	request.session['pw'] = 'acubkajcsbkcs'
+
 	form = user_login_details(request.POST or None)
 
 	if form.is_valid():
