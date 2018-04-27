@@ -29,11 +29,13 @@ urlpatterns = [
     path('', base_views.home, name = 'home'),
     re_path(r'^account/(?P<username>[\w.@+-]+)/$', base_views.user_home, name = 'account'),
     path('vendors/', base_views.vendor_list, name = 'vendor_list'),
-    re_path(r'^ven/(?P<username>[\w.@+-]+)/$', vendor_views.list_for_vendors, name = 'list_for_vendors'),
-    path('errora/', login_views.access_error, name = 'error_access'),  
+    re_path(r'^vendors/(?P<username>[\w.@+-]+)/$', base_views.user_vendor_list, name = 'user_vendor_list'),
     re_path(r'^myorders/(?P<username>[\w.@+-]+)/$', base_views.user_order, name = 'user_orders'),
-    re_path(r'^spec_ven/(?P<vusername>[\w.@+-]+)/(?P<cusername>[\w.@+-]+)/$', base_views.vendor_dynamic, name = 'specific_vendor'),  
-    path('food_items/', base_views.item_list, name = 'food_list'),  
+    re_path(r'^spec_ven/(?P<vusername>[\w.@+-]+)/(?P<cusername>[\w.@+-]+)/$', base_views.user_vendor_dynamic, name = 'user_specific_vendor'),  
+    re_path(r'^profile/(?P<username>[\w.@+-]+)/$', base_views.user_profile, name = 'user_profile'),
+    re_path(r'^ven/(?P<username>[\w.@+-]+)/$', vendor_views.list_for_vendors, name = 'vendor_user'),
+    path('errora/', login_views.access_error, name = 'error_access'),  
+    re_path(r'^checkout/(?P<username>[\w.@+-]+)/$', base_views.user_checkout, name = 'checkout'),
 ]
 
 if settings.DEBUG:
