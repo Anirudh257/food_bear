@@ -50,7 +50,7 @@
             </li>
 
             <li class="nav-item ">
-                <a class="nav-item" href="#"><i class="align-middle" data-feather="log-out"></i> Logout  </a>
+                <a class="nav-item" href="/login"><i class="align-middle" data-feather="log-out"></i> Logout  </a>
               </li>
           </ul>
         
@@ -74,39 +74,41 @@
         <div id="item-card" class="card m-2 bg-light">
           <div id="item-row" class="d-table-row p-1">
             <div id="item-name" class="d-table-cell col-5 align-middle"><h4>{{ item }}</h4></div>
-            <div id="item-price" class="d-table-cell col-3 align-middle"><h5>{{ quant }} * {{ price }} = {{ cost }}</h5></div>
+            <div id="item-price" class="d-table-cell col-3 align-middle"><h5>{{ quant }} * ${{ price }} = ${{ cost }}</h5></div>
           </div>
         </div>
       {% endfor %}
 
-<!-- 
-        <div class="shopping-cart">
-        
+
+
          
-          <div class="totals">
-            <div class="totals-item totals-item-total">
-                
-              <label>Grand Total</label>
-              <div class="totals-value" id="cart-total">90.57</div>
-            </div>
+        <div class="totals">
+          <div class="totals-item totals-item-total">  
+            <label>Grand Total</label>
+            <div class="totals-value" id="cart-total">${{ grand_total }}</div>
           </div>
-              
-              <button class="checkout delete">Checkout</button>
-        
         </div>
-                <div class="row px-auto">
-                    <div class="col-10 mx-auto">
-                      <button type = 'submit' class="btn delete btn-primary btn-lg btn-5">Proceed to Payment</button>
-                    </div>
-                  </div>
-                  <footer class="container">
+
+
+        <div class="row px-auto">
+          <form method = "POST"> {% csrf_token %}
+            <div class="row px-auto">
+              <div class="col-10 mx-auto">
+                <button type = 'submit' class="btn delete btn-primary btn-lg btn-5">Proceed to Payment</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+          <footer class="container">
                       <p class="float-right">
                           <a style="color: black" href="#">
                               <i class="align-middle" data-feather="chevrons-up">
                               </i> Back to top
                           </a>
                       </p>
-                  </footer> -->
+                  </footer>
+
         </main>
         
     <!-- Bootstrap core JavaScript

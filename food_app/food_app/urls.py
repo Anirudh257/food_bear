@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
+from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -36,6 +37,10 @@ urlpatterns = [
     re_path(r'^ven/(?P<username>[\w.@+-]+)/$', vendor_views.list_for_vendors, name = 'vendor_user'),
     path('errora/', login_views.access_error, name = 'error_access'),  
     re_path(r'^checkout/(?P<username>[\w.@+-]+)/$', base_views.user_checkout, name = 'checkout'),
+    path('paypal/', include('paypal.standard.ipn.urls')),
+    path('payment/', include(('payment.urls', 'payment'), namespace = 'payment')),
+    re_path(r'^order_status/(?P<username>[\w.@+-]+)/$', vendor_views.order_status, name = "order_status"),
+    path('aboutus/', base_views.about_us_v, name = 'about_us'),
 ]
 
 if settings.DEBUG:
