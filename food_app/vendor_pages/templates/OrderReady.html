@@ -1,0 +1,91 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/vendorlist.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/sldng-dgnl.css' %}">
+	<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Animated Background -->           
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <!-- Animated Background Ends -->  
+
+  	<nav class="navbar navbar-expand navbar-dark navbar-default bg-dark sticky-top" >
+		<ul class="navbar-nav mr-auto">
+			   <li class="nav-item nav-link"><a class="nav-link" href="#"><h5>Georgia</h5></a></li> 
+		</ul>
+		<a href = "/login"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button></a>
+	</nav>
+	
+  	<div id="ge" class="m-1">
+		<div class="jumbotron text-center bg-light col-md-10 mx-auto">
+			<hr>
+			<img src="{{ v_i }}" class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap" height="300" width="42">
+			<hr>
+			<h6>ORDER PENDING</h6>
+			<hr>
+
+				<!-- {% for order_id, user, item_list, grand_total, status, vendor_id in orders_in_trans_db %}
+
+
+				<div class="row">
+					<div id = {{ order_id }} class="col-9">Order: {{ order_id }}</div>
+					<div class="col-9">Items: {{ item_list }}</div>
+					<div><input type="button"  class="btn btn-5 my-2 my-sm-0" value="Order Ready"></div>
+				</div>  	
+				<hr>					
+
+				{% endfor %} -->
+
+
+			<form method = 'POST'> {% csrf_token %}
+
+		      {{ form.as_p }}
+
+		      <div class="row px-auto">
+		        <div class="col-10 mx-auto">
+		          <button type = 'submit' class="btn btn-lg btn-5">Accept Orders</button>
+		        </div>
+		      </div>
+
+    		</form>
+
+			<!-- <div class="row">
+				<div class="col-9">Order 2- Cake, Sandwich</div>
+				<div><input type="button"  class="btn btn-5 my-2 my-sm-0" value="Order Ready"></div>
+			</div> 
+			 
+			<hr>  -->
+		</div>
+		<div class="jumbotron text-center bg-light col-md-10 mx-auto">
+
+			<h6>ORDER DONE</h6>
+			<hr>
+
+
+				{% for order_id, user, item_list, grand_total, status, vendor_id in orders_done_db %}
+
+
+				<div class="row">
+					<div class="col-9">Order: {{ order_id }}</div>
+					<div class="col-9">Items: {{ item_list }}</div>
+				</div>  	
+				<hr>					
+
+				{% endfor %}
+
+								<!-- 
+			<div class="row">
+				<div class="col-9 ">Order 2- Cake, Sandwich</div>
+			</div>
+			<hr>  -->
+		</div>
+  	</div>
+  </body>
+</html>

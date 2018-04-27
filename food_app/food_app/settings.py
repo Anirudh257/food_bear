@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'login',
     'base_pages',
     'vendor_pages',
+    'paypal.standard.ipn',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,8 @@ if DEBUG:
     STATICFILES_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), "static", "static"),
 )
+
+# django-paypal settings
+
+PAYPAL_RECEIVER_EMAIL = 'foodbearSPM@gmail.com'
+PAYPAL_TEST = True
