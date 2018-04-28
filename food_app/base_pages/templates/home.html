@@ -5,6 +5,7 @@
   <head>
       <title>Welcome to Food Bear</title>
       <link rel="stylesheet" href="{% static 'css\navig.css' %}">
+      <link rel="stylesheet" href="{% static 'css\buttons.css' %}">
       <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/sldng-dgnl.css' %}"> -->
       <link rel="stylesheet" type="text/css" href="{% static 'css\bootstrap.min.css' %}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -25,9 +26,16 @@
       <br>
       <h1 align="center" id="choose">Time to Munch!!</h1>
       <hr class="bg-dark">
+        <br>
       <div class="row">
-        <div class="col-8 mx-auto">
-          <a href="#" class="btn btn-sm animated-button thar-two">Show all Food Items</a>
+        <div class="col-8 mx-auto p-auto">
+          <a href="#" id="hmpg-btns" class="btn btn-lg red mx-auto">Show all Food Items</a>
+        </div>
+
+        <div>
+          <hr>
+          <br>
+          <br>
         </div>
         {% block button2 %}    
         {% endblock %}
