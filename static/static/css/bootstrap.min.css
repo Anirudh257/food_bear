@@ -22,3 +22,13 @@
 	margin: auto;
 	display: block;
 }
+
+#list-of-vendors	{
+	background: url(https://www.vintagewallpapers.be/wp-content/uploads/2017/12/img_8389-1.jpg) no-repeat center center fixed;
+	background-size: cover; 	
+}
+
+#dyn-list-bg	{
+	background-color: #FDD5B1;
+	background-size: cover; 	
+}

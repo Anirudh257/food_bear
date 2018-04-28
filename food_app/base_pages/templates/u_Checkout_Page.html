@@ -22,9 +22,9 @@
   </head>
   <body class="py-5">
     <!-- Animated Background -->           
-    <div class="bg"></div>
+  <!--   <div class="bg"></div>
     <div class="bg bg2"></div>
-    <div class="bg bg3"></div>
+    <div class="bg bg3"></div> -->
     <!-- Animated Background Ends -->
     <header>
         <!-- Responsive Navbar -->
@@ -41,7 +41,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Dashboard </a>
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="align-middle" data-feather="user"></i> {{ username }}'s Dashboard </a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">My Orders</a>
@@ -54,10 +54,10 @@
               </li>
           </ul>
         
-          <form class="form-inline my-2 my-md-0">
+         <!--  <form class="form-inline my-2 my-md-0">
             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 align-right mx-auto" type="submit">Search</button>
-          </form> 
+          </form>  -->
          
         </div>
       </nav> 
@@ -94,7 +94,7 @@
           <form method = "POST"> {% csrf_token %}
             <div class="row px-auto">
               <div class="col-10 mx-auto">
-                <button type = 'submit' class="btn delete btn-primary btn-lg btn-5">Proceed to Payment</button>
+                <button type = 'submit' class="btn checkout delete btn-primary btn-lg btn-5">Checkout</button>
               </div>
             </div>
           </form>
