@@ -41,10 +41,15 @@
               </a>
             </li>
             <li class="nav-item">
+            
+            <a class="nav-link" href="/aboutus"><i class="align-middle" data-feather="users"></i> About Us</a>
+
+          </li>
+            <li class="nav-item">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="align-middle" data-feather="user"></i> {{ username }}'s Dashboard </a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">My Orders</a>
+                <a class="dropdown-item" href="/profile/{{ username }}">Profile</a>
+                <a class="dropdown-item" href="/myorders/{{ username }}">My Orders</a>
                 <!-- <a class="dropdown-item" href="#">Passbook</a> -->
               </div>
             </li>
@@ -66,8 +71,8 @@
 
     <main role="main">
 
-        <h2>Shopping Cart</h2>
-
+        <h2 class = "my-3">Shopping Cart</h2>
+        <hr>
         <h3>{{ error }}</h3>
 
         {% for item, price, quant, cost in ordered_food %}
@@ -77,6 +82,7 @@
             <div id="item-price" class="d-table-cell col-3 align-middle"><h5>{{ quant }} * ${{ price }} = ${{ cost }}</h5></div>
           </div>
         </div>
+        <hr>
       {% endfor %}
 
 
@@ -87,18 +93,20 @@
             <label>Grand Total</label>
             <div class="totals-value" id="cart-total">${{ grand_total }}</div>
           </div>
+
+           
         </div>
 
 
         <div class="row px-auto">
           <form method = "POST"> {% csrf_token %}
-            <div class="row px-auto">
-              <div class="col-10 mx-auto">
-                <button type = 'submit' class="btn checkout delete btn-primary btn-lg btn-5">Checkout</button>
+            <div class="row mx-auto">
+              <div class="col-10 mx-auto float-right">
+                <button type = 'submit' class="btn checkout delete btn-primary btn-lg">Checkout</button>
               </div>
             </div>
           </form>
-        </div>
+        </div> 
 
           <footer class="container">
                       <p class="float-right">

@@ -5,20 +5,30 @@
   <head>
       <title>Welcome to Food Bear</title>
       <link rel="stylesheet" href="{% static 'css\navig.css' %}">
-      <link rel="stylesheet" type="text/css" href="{% static 'css/sldng-dgnl.css' %}">
+      <link rel="stylesheet" href="{% static 'css\buttons.css' %}">
+      <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/sldng-dgnl.css' %}"> -->
       <link rel="stylesheet" type="text/css" href="{% static 'css\bootstrap.min.css' %}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <script type="text/javascript" src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
   </head>
-  <body>
-    <!-- Animated Background -->           
-    <div class="bg"></div>
-    <div class="bg bg2"></div>
-    <div class="bg bg3"></div>
+  <body id="hmpg">
     <!-- Animated Background Ends -->  
 
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/">FoodBear</a>
+     
+        <div class="" id="navbarsExample01">
+        <a class="nav-link" href="/">
+          <hr>
+                  <i class="fa fa-home align-middle" data-feather="home"></i> Home<span class="sr-only">(current)</span>
+              </a>
+         
+         
+        </div>
+      </nav> 
+
     <!-- Responsive Navbar -->
-      <nav class="navbar navbar-dark bg-dark fixed-top">
+     <!--  <nav class="navbar navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="/">Food Bear</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,7 +45,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdown01">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item active" href="/myorders/{{ username }}">My Orders</a>
-                <!-- <a class="dropdown-item" href="#">Passbook</a> -->
+              
               </div>
             </li>
             <li class="nav-item ">
@@ -52,11 +62,12 @@
           </form> 
        
         </div>
-      </nav> 
+      </nav>  -->
       <!-- end navbar -->
 
     <h1>Payment Successfuly Received</h1>
     <h1>Payment Successfuly Received</h1>
+    <a href = "/"><button>Back to Home</button></a>
 
     <!-- JavaScript and JQuery Files -->
     <script src="{% static 'js/vendor/jquery-slim.min.js' %}"></script>

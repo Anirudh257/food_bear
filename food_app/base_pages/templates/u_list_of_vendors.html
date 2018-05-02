@@ -14,10 +14,15 @@
               </a>
             </li>
             <li class="nav-item">
+            
+            <a class="nav-link" href="/aboutus"><i class="fas fa-smile"></i>About Us</a>
+
+          </li>
+            <li class="nav-item">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="align-middle" data-feather="user"></i>{{ username }}'s Dashboard </a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">My Orders</a>
+                <a class="dropdown-item" href="/profile/{{ username }}">Profile</a>
+                <a class="dropdown-item" href="/myorders/{{ username }}">My Orders</a>
                 <!-- <a class="dropdown-item" href="#">Passbook</a> -->
               </div>
             </li>

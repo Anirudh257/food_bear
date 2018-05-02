@@ -39,17 +39,22 @@
                     <i class="align-middle" data-feather="home"></i> Home<span class="sr-only">(current)</span>
               </a>
             </li>
+            <li class="nav-item">
+            
+            <a class="nav-link" href="/aboutus"><i class="align-middle" data-feather="users"></i> About Us</a>
+
+          </li>
             <li class="nav-item active">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="align-middle" data-feather="user"></i> {{ username }}'s Dashboard </a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="/profile/{{ username }}">Profile</a>
                 <a class="dropdown-item active" href="#">My Orders</a>
                 <!-- <a class="dropdown-item" href="#">Passbook</a> -->
               </div>
             </li>
-             <li class="nav-item ">
+            <!--  <li class="nav-item ">
                 <a href="">{{ username }}</a>
-            </li>
+            </li> -->
             <li class="nav-item ">
                 <a class="nav-link" href="/login"><i class="align-middle" data-feather="log-out"></i> Logout  </a>
             </li>
@@ -69,9 +74,9 @@
 	        <div class="page">
 	            <p>
 	                <div class="dropdown">                
-	                    <button  onclick="toggleBtnSort()" class="btn btn-sort" id="btn-sort ">Sort
+	                    <!-- <button  onclick="toggleBtnSort()" class="btn btn-sort" id="btn-sort ">Sort
 	                        <i class="align-middle" data-feather="chevron-down"></i>
-	                    </button>               
+	                    </button>                -->
 	                    <div id="myDropdownBtn" class="dropdown-content">               
 	                        <a href="#about">All</a>
 	                        <a href="#base">Confirmed</a>
@@ -84,50 +89,22 @@
 	                <thead>
 	                    <tr>
 	                        <th>Order ID</th>
-	                        <th>Date/Time</th>
-	                        <th>Name/Quantity</th>
-	                        <th>Vendor</th>
-	                        <th>Status</th>
-	                        <th>Time Remaining</th>
+	                        <th>Item List</th>
+	                        <th>Vendor ID</th>
+                          <th>Status</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
 	                    <tr>
-	                        <td class="organisationnumber">140406</td>
-	                        <td class="organisationname">14/5/18 3:55PM</td>
-	                        <td class="organisationname">Burger</td>
-	                        <!-- <td class="actions"><a href="?" class="remove-item" title="Remove"></a></td> -->
-	                        <td class="organisationname">Georgia</td>
-	                        <td class="organisationname">Confirmed</td>
-	                        <td class="organisationname">15 mins</td>
-	                    </tr>       
-	                    <tr>
-	                        <td class="organisationnumber">140412</td>
-	                        <td class="organisationname">17/5/18 9:34PM</td>
-	                        <td class="organisationname">Paneer Roll/2</td>
-	                        <!-- <td class="actions"><a href="?" class="remove-item" title="Remove"></a></td> -->
-	                        <td class="organisationname">Rollwala</td>
-	                        <td class="organisationname">Pending</td>
-	                        <td class="organisationname">-</td>
-	                    </tr>
-	                    <tr>
-	                        <td class="organisationnumber">140404</td>
-	                        <td class="organisationname">20/5/18 11:02AM</td>
-	                        <td class="organisationname">Coleselow Sandwich</td>
-	                        <!-- <td class="actions"><a href="?" class="remove-item" title="Remove"></a></td> -->
-	                        <td class="organisationname">Rama Enterprise</td>
-	                        <td class="organisationname">Delivered</td>
-	                        <td class="organisationname">-</td>
-	                    </tr>
-	                    <tr>
-	                        <td class="organisationnumber">140408</td>
-	                        <td class="organisationname">23/5/18 6:23PM</td>
-	                        <td class="organisationname">Baked Nachos</td>
-	                        <!-- <td class="actions"><a href="?" class="remove-item" title="Remove"></a></td> -->
-	                        <td class="organisationname">Georgia</td>
-	                        <td class="organisationname">Confirmed</td>
-	                        <td class="organisationname">20 mins</td>
-	                    </tr>     
+
+	                    {% for order_id, user, item_list, grand_total, status, vendor_id in orders_made %}
+	                        <td class="organisationnumber">{{ order_id }}</td>
+	                        <td class="organisationname">{{ item_list }}</td>
+	                        <td class="organisationname">{{ vendor_id }}</td>
+	                        <td class="organisationname">{{ status }}</td>
+	                    	</tr>       
+	                    {% endfor %}
+	                    
 	                </tbody>
 	            </table>
 	        </div>
