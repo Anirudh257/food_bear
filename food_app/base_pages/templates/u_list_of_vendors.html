@@ -14,11 +14,16 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User Dashboard </a>
+            
+            <a class="nav-link" href="/aboutus"><i class="fas fa-smile"></i>About Us</a>
+
+          </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="align-middle" data-feather="user"></i>{{ username }}'s Dashboard </a>
               <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">My Orders</a>
-                <a class="dropdown-item" href="#">Passbook</a>
+                <a class="dropdown-item" href="/profile/{{ username }}">Profile</a>
+                <a class="dropdown-item" href="/myorders/{{ username }}">My Orders</a>
+                <!-- <a class="dropdown-item" href="#">Passbook</a> -->
               </div>
             </li>
              <!-- <li class="nav-item ">
@@ -29,12 +34,12 @@
               </li>
           </ul>
         
-          <form class="form-inline my-2 my-md-0">
+          <!-- <form class="form-inline my-2 my-md-0">
             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 mx-auto" type="submit">Search</button>
-          </form>
+          </form> -->
         </div>
-      </nav> }
+      </nav> 
 {% endblock %}
 
 {% block ven_items %}
@@ -44,7 +49,10 @@
     <div class="col-lg-4">
       <img class="rounded-circle" src="{{ img }}" alt="Generic placeholder image" width="140" height="140">
       <h3 style="color: black">{{ name }}</h3>
-      <p><a href = "/spec_ven/{{ id }}/{{ username }}"><button class="btn btn-5">Select Food Items</button></p></a>
+      <p>
+        <a href = "/spec_ven/{{ id }}/{{ username }}"><button class="btn btn-secondary"><strong>Select Food Items</strong></button>
+        </a>
+      </p>
     </div>
 
   {% endfor %}

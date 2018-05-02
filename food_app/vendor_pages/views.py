@@ -37,8 +37,6 @@ def list_for_vendors(request, username):
 			temp_tupple.available = form.cleaned_data[item[2]]
 			temp_tupple.save()
 
-		return redirect('/order_status/' + username + '/')		
-
 	return render(request, 'vendor_specific.html', vendor_dict)
 
 def order_status(request, username):

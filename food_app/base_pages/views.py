@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from vendor_pages.models import vendor_food_list
 from vendor_pages.models import vendor_info
+from payment.models import order_db
 from django.views.decorators.csrf import ensure_csrf_cookie
 # Create your views here.
 
@@ -89,7 +90,8 @@ def user_order(request, username):
 	if auth_user is None or user != username + '\n':
 		return redirect('/errora')
 
-	return render(request, 'u_MyOrders.html', {'username' : username})
+	orders_made = order_db.objects.filter(user = username).values_list()
+	return render(request, 'u_MyOrders.html', {'username' : username, 'orders_made' : orders_made})
 
 def vendor_dynamic(request, vusername): #change navbar
 
@@ -173,7 +175,7 @@ def user_profile(request, username):
 
 	auth_user = authenticate(username = user, password = passw)
 
-	if auth_user is None or user != cusername + '\n':
+	if auth_user is None or user != username + '\n':
 		return redirect('/errora')	
 
 	return render(request, 'u_User-Profile.html', locals())
